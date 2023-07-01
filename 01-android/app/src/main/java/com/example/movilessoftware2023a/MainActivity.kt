@@ -1,11 +1,30 @@
 package com.example.movilessoftware2023a
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
+import android.util.Log
 import android.widget.Button
+import androidx.activity.result.contract.ActivityResultContracts
 
 class MainActivity : AppCompatActivity() {
+    val callbackCOntenidoIntentExplicito =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ){
+            result ->
+            if(result.resultCode == Activity.RESULT_OK){
+                if(result.data != null){
+                    val data = result.data
+                    "${data?.getStringExtra("nombreModificado")}"
+                }
+            }
+        }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -13,8 +32,50 @@ class MainActivity : AppCompatActivity() {
             R.id.btn_ciclo_vida
         )
         botonCicloVida.setOnClickListener{
-            irActividad(ACicloVida::class.java)
+            irActividad(AACicloVida::class.java)
         }
+        val botonListView = findViewById<Button>(
+            R.id.btn_ir_list_view
+        )
+        botonListView.setOnClickListener {
+            irActividad(BListView::class.java)
+        }
+        val botonIntentImplicito = findViewById<Button>(R.id.btn_ir_intent_implicito)
+        botonIntentImplicito
+            .setOnClickListener {
+                val intentCOnRespuesta = Intent(
+                    Intent.ACTION_PICK,
+                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI
+                )
+                callbackIntentPickUri.launch(intentCOnRespuesta)
+            }
+        val botonIntentExplicito = findViewById<Button>(R.id.btn_ir_intent_explicito)
+        botonIntentExplicito
+            .setOnClickListener {
+                abrirActividadConParametros(CIntentExplicitoParametros::class.java)
+            }
+    }
+    val callbackIntentPickUri =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+            ){
+        result ->
+        if(result.resultCode === RESULT_OK){
+            if(result.data != null){
+                if(result.data!!.data != null){
+                    val uri: Uri = result.data!!.data!!
+                    val cursor = contentResolver.query(uri,null,null,null,null,null)
+                    cursor?.moveToFirst()
+                    val indiceTelefono = cursor?.getColumnIndex(
+                        ContactsContract.CommonDataKinds.Phone.NUMBER
+                    )
+                    val telefono = cursor?.getString(indiceTelefono!!)
+                    cursor?.close()
+                    "Telefono ${telefono}"
+                }
+            }
+    }
+
     }
     fun irActividad(
         clase: Class<*>
@@ -22,5 +83,19 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, clase)
         startActivity(intent)
         // this.startActivity()
+    }
+    fun abrirActividadConParametros(
+        clase: Class<*>
+    ){
+        val intentExplicito = Intent(this, clase)
+        // Enviar parametros
+        // (aceptamos primitivas)
+        intentExplicito.putExtra("nombre","Joffre")
+        intentExplicito.putExtra("apellido","Cóndor")
+        intentExplicito.putExtra("edad",30)
+        // enviamos el intent con RESPUESTA
+        // RECIBIMOS RESPUESTA
+        callbackCOntenidoIntentExplicito
+            .launch(intentExplicito)
     }
 }
