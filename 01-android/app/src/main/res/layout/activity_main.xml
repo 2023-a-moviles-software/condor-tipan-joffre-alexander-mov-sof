@@ -31,14 +31,14 @@
         android:backgroundTintMode="add"
         android:shadowColor="@color/color_fondo_texto"
         android:text="Ciclo Vida"
-        android:textColor="@color/color_texto"
+        android:textColor="@color/white"
         android:textColorHighlight="@color/color_fondo_texto"
         android:textColorHint="@color/color_fondo_texto"
         android:textColorLink="@color/color_fondo_texto"
         app:iconTint="@color/color_fondo_texto"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:rippleColor="@color/color_fondo_texto"
         app:strokeColor="@color/color_fondo_texto" />
@@ -47,28 +47,57 @@
         android:id="@+id/btn_ir_list_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:text="List View"
         app:layout_constraintEnd_toEndOf="@+id/btn_ciclo_vida"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btn_ciclo_vida"
-        tools:layout_editor_absoluteY="101dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_ir_intent_implicito"
         android:layout_width="83dp"
         android:layout_height="36dp"
+        android:layout_marginStart="16dp"
         android:text="I. Implicito"
         app:layout_constraintBottom_toBottomOf="@+id/btn_ir_list_view"
+        app:layout_constraintEnd_toStartOf="@+id/btn_ir_list_view"
+        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_ir_list_view"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="41dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_ir_intent_explicito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="I. explicito"
-        tools:layout_editor_absoluteX="26dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_ciclo_vida"
+        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="210dp" />
+
+    <Button
+        android:id="@+id/btn_sqlite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="SqLite"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_ir_list_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_ir_list_view"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="R. View"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/btn_ciclo_vida"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sqlite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

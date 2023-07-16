@@ -55,6 +55,14 @@ class MainActivity : AppCompatActivity() {
             .setOnClickListener {
                 abrirActividadConParametros(CIntentExplicitoParametros::class.java)
             }
+        val botonSqLite = findViewById<Button>(R.id.btn_sqlite)
+        botonSqLite.setOnClickListener {
+            irActividad(ECrudEntrenador::class.java)
+        }
+        val botonRView = findViewById<Button>(R.id.btn_recycler_view)
+        botonRView.setOnClickListener {
+            irActividad(FRecyclerView::class.java)
+        }
     }
     val callbackIntentPickUri =
         registerForActivityResult(
@@ -76,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
     }
+
 
     }
     fun irActividad(

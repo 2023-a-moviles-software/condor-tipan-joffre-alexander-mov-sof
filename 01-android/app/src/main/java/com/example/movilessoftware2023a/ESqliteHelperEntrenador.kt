@@ -21,6 +21,7 @@ null,
                     decripcion VARCHAR(50)
                 )
             """.trimIndent()
+        db?.execSQL(scriptSQLCrearTablaEntrenador)
     }
     override fun onUpgrade(db:SQLiteDatabase?, oldVersion:Int, newversion:Int){
         TODO("Not yet implemented")
@@ -38,6 +39,7 @@ null,
             )
         baseDatosEscritura.close()
         return if (resultadoGuardar.toInt() === -1) false else true
+
     }
     fun eliminarEntrenadorFormulario(id:Int):Boolean{
         val conexionEscritura = writableDatabase
