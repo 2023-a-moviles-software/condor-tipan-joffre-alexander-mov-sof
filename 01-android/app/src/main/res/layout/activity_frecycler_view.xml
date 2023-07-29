@@ -8,19 +8,21 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_entrenadores"
-        android:layout_width="319dp"
-        android:layout_height="195dp"
+        android:layout_width="342dp"
+        android:layout_height="241dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="268dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_total_likes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="88dp"
         android:text="0"
         app:layout_constraintBottom_toTopOf="@+id/rv_entrenadores"
         app:layout_constraintEnd_toEndOf="@+id/rv_entrenadores"
-        app:layout_constraintStart_toStartOf="@+id/rv_entrenadores"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/rv_entrenadores" />
 </androidx.constraintlayout.widget.ConstraintLayout>
