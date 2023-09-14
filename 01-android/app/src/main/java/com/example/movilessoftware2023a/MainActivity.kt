@@ -67,6 +67,16 @@ class MainActivity : AppCompatActivity() {
         botonGMaps.setOnClickListener {
             irActividad(GGoogleMaps::class.java)
         }
+        val botonUiAuth = findViewById<Button>(R.id.btn_intent_firebase_ui)
+        botonUiAuth
+            .setOnClickListener {
+                irActividad(HFirebaseUIAuth::class.java)
+            }
+        val botonFirestore = findViewById<Button>(R.id.btn_intent_firestore)
+        botonFirestore
+            .setOnClickListener {
+                irActividad(IFirestore::class.java)
+            }
     }
     val callbackIntentPickUri =
         registerForActivityResult(

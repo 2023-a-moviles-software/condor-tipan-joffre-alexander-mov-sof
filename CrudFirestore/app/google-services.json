@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "127867061582",
+    "project_id": "crudfirestore-9f051",
+    "storage_bucket": "crudfirestore-9f051.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127867061582:android:ab0c3ac318f59ac5574a1f",
+        "android_client_info": {
+          "package_name": "com.example.examenibcrud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBL2FR-vPjdXZOYB4ynvWVrQonO2eOOpo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
